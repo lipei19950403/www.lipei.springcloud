@@ -1,0 +1,44 @@
+---
+eureka:
+    client:
+        service-url:
+        #eureka注册中心服务器地址
+            defaultZone: http://lipei:lipei@127.0.0.1:8888/eureka/
+    instance:
+        hostname: localhost
+        #eureka服务器页面中status的请求路径
+        status-page-url: http://localhost:7001/index
+#服务端口
+server:
+    port: 7001
+#服务名
+spring:
+    profiles: consumer1
+    application:
+        name: cloudConsumer
+    devtools:
+        restart:
+            exclude: application.yml
+            trigger-file: trigger.txt       
+---
+eureka:
+    client:
+        service-url:
+        #eureka注册中心服务器地址
+            defaultZone: http://lipei:lipei@127.0.0.1:8888/eureka/
+    instance:
+        hostname: localhost
+        #eureka服务器页面中status的请求路径
+        status-page-url: http://localhost:7001/index
+#服务端口
+server:
+    port: 7000
+#服务名
+spring:
+    profiles: consumer2
+    application:
+        name: cloudConsumer
+    devtools:
+        restart:
+            exclude: application.yml
+            trigger-file: trigger.txt

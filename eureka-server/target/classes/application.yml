@@ -1,0 +1,38 @@
+---
+spring:
+  profiles: peer1
+  application:
+    name: spring-cloud-eureka
+  security:
+    user:
+      name: lipei
+      password: lipei
+server:
+  port: 8888
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer2:${server.port}/eureka/
+---
+spring:
+  profiles: peer2
+  application:
+    name: spring-cloud-eureka
+  security:
+    user:
+      name: lipei
+      password: lipei
+server:
+  port: 8889
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer1:${server.port}/eureka/
