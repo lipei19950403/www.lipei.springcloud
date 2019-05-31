@@ -1,5 +1,6 @@
 package www.lipei.springcloud.cloud_customer;
 
+import org.springframework.amqp.core.Queue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -43,6 +44,13 @@ public class SpringcloudCustomerApplication {
         registrationBean.setName("HystrixMetricsStreamServlet");
         return registrationBean;
     }
+	
+	
+	  @Bean 
+	  public Queue newQueue() { 
+		 return new Queue("hello");
+	  }
+	 
 	
 }
 

@@ -20,11 +20,14 @@ import org.springframework.web.client.RestTemplate;
 
 import www.lipei.springcloud.cloud_customer.FeignInterFace.PayFeignClient;
 import www.lipei.springcloud.cloud_customer.entity.User;
+import www.lipei.springcloud.cloud_customer.queue.sender.MqSender;
 
 
 @RestController
 public class MovieController {
 	
+	@Autowired
+	private MqSender mySender;
 	@Autowired
 	private PayFeignClient payFeignClient;
 	@Autowired
@@ -110,6 +113,11 @@ public class MovieController {
 	public String sendParamByFeign(@RequestParam String transSeqno,@RequestParam String checkStatus ) {
 		return payFeignClient.payWithParams(transSeqno, checkStatus);
 		
+	}
+	
+	@PostMapping("/customer/testRabbitMq")
+	public void testRabbitMq() {
+		mySender.send();
 	}
 	
 	

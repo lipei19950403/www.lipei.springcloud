@@ -43,10 +43,12 @@
 	</build>
 	<modules>
 		<module>www.lipei.config</module>
-	    <module>zipkin-server</module>
 	    <module>eureka-server</module>
 	    <module>cloud-customer</module>
 	    <module>cloud-provide</module>
 	    <module>cloud-batch</module>
-	</modules>
+    	<module>cloud-zipkin</module>
+    	<module>cloud-web</module>
+   		<module>eureka-admin</module>
+  </modules>
 </project>

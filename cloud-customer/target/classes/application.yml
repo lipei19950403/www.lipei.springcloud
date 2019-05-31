@@ -16,6 +16,11 @@ spring:
     profiles: consumer1
     application:
         name: cloudConsumer
+    rabbitmq:
+        host: 127.0.0.1
+        port: 5672
+        username: guest
+        password: guest
     devtools:
         restart:
             exclude: application.yml
@@ -29,7 +34,7 @@ eureka:
     instance:
         hostname: localhost
         #eureka服务器页面中status的请求路径
-        status-page-url: http://localhost:7001/index
+        status-page-url: http://localhost:7000/index
 #服务端口
 server:
     port: 7000
@@ -38,6 +43,10 @@ spring:
     profiles: consumer2
     application:
         name: cloudConsumer
+    rabbitmq:        host: 127.0.0.1
+        port: 5672
+        username: guest
+        password: guest
     devtools:
         restart:
             exclude: application.yml

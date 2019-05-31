@@ -1,0 +1,19 @@
+eureka:
+    client:
+        service-url:
+        #eureka注册中心服务器地址
+            defaultZone: http://lipei:lipei@127.0.0.1:8888/eureka/
+    instance:
+        hostname: localhost
+        #eureka服务器页面中status的请求路径
+        status-page-url: http://localhost:9001/index
+               #按ip去注入，否则按服务名去注册
+        #prefer-ip-address: true
+               #打印版本号
+        instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#服务端口
+server:
+    port: 9001
+spring:
+  application:
+    name: eureka-admin
