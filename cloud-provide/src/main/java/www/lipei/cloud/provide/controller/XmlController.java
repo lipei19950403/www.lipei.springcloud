@@ -27,6 +27,9 @@ public class XmlController {
 		admin.setAdminName("lipeiemmm");
 		admin.setAdminPwd("lipeipwd");
 		admin.setAdminAge("24");
+		
+		
+		
 		return admin;
 	} 
 	
